@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% from "show_links.html" import show_links %} {% block title %} Question {% endblock %} {% block nav %} {{ show_links(user) }} {% endblock %} {% block body %}
+
+<div class="jumbotron">
+    <h1>{{ question['questions'] }}</h1>
+    <p>{{ question['answer'] }}</p>
+    <p><a class="btn btn-primary btn-lg">Asked By: {{ question['asker_name'] }} </a></p>
+    <p><a class="btn btn-primary btn-lg">Answered By: {{ question['expert_name'] }} </a></p>
+    {% if user['admin'] == 1 %}
+    <a type="button" class="btn btn-primary" href="#">Delete this question</a> {% endif %}
+</div>
+
+{% endblock %}
